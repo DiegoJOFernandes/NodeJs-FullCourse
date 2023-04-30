@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escopos: Let_Const_Var</title>
+  
+</head>
+
+<body>
+  <script>
+    //  escopos: global, função, bloco
+
+    var serie = 'Iron Finst' // Var é uma variável acessivel para todos os escopos
+
+    console.log('Global: ', serie)
+    // console.log('Funcao para global: ', serie2)
+
+    function escopoFuncao() {
+      console.log('global para funcao: ', serie)
+      var serie2 = "GOT"
+      console.log('Bloco para Funcao', serie3) // sofreu hoisting
+    }   
+
+    if(true){
+      console.log('global para bloco: ', serie)
+      
+      // console.log('funcao para bloco: ', serie2) // Escopo sem acesso para var
+      var serie3 = 'Demon Slayer'
+    }
+
+    escopoFuncao()
+    
+    {
+      console.log('bloco2: ', serie)
+      console.log('bloco para bloco2: ', serie3) // var é passada de bloco para bloco
+    }
+
+  </script>
+  <p>    
+    // Escopo é imprescindivel cada var tem um certo nível de permissão/acesso
+  </p>
+  <p>
+    // VAR
+    // Temos 3 escopos
+    // Escopo global -> Pode ser invocada dentro de qualquer outro escopo inferior(função e bloco)
+    // Escopo de função -> function() {}
+    // Escopo de bloco -> while() {} | if() {} | for() {} | switch() {}
+  </p>
+  <p>
+    // Hoisting -> Quando declaramos um operador VAR dentro de um bloco ou função ela sofre hoisting(elevação) para escopos superiores
+    // var declarada em um bloco -> pode ser elevada para uma função ou uma variável global
+    // var declarada em uma função -> pode ser elevada para uma variável global 
+  </p>
+  
+</body>
+</html>
